@@ -1,5 +1,4 @@
-import Joi from '@hapi/joi'
- 
+import Joi from 'joi' 
  
  const querySchema = Joi.object({
             senderName: Joi.string().min(4).required(),
