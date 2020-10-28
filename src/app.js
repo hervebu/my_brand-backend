@@ -1,9 +1,10 @@
+
 import express from 'express';
-import {dbConnection} from './database/config'
+import * as config from './database/config'
 import bodyParser from 'body-parser'
 import routes from './routes/index'
 
-dbConnection()
+config.dbConnection
 const app = express()
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
