@@ -9,8 +9,9 @@ const addQuery = async (query) => {
 const getQuery = async () => {
     return await Query.find()
 }
-// const deleteQuery = async () => {
-//     return await Query.findOneAndDelete
-// }
 
-export default {addQuery, getQuery}
+const deleteQuery = async (id) => {
+    return await Query.findOneAndDelete({_id:id})
+}
+
+export default {addQuery, getQuery, deleteQuery}
