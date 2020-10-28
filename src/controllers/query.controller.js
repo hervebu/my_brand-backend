@@ -1,8 +1,7 @@
 import queryService from '../services/query.service'
 import {querySchema} from '../validations/query.validation'
 
-
-const {addQuery, getQuery} = queryService
+const {addQuery, getQuery, deleteQuery} = queryService
 
 const createQuery = async (req, res) => {
     const {error} = await querySchema.validate(req.body)
@@ -17,5 +16,9 @@ const retrieveQueries = async (req, res) => {
     const query = await getQuery()
     res.status(200).json({data:query})
 }
+const removeQuery = async (req, res) => {
+    await deleteQuery(req.params.query_id)
+    return res.status(200).send({message: 'query deleted'})
+}
 
-export default {createQuery, retrieveQueries}
+export default {createQuery, retrieveQueries, removeQuery}
