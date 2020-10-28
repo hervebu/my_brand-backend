@@ -1,9 +1,8 @@
 import express from 'express'
-import queryRouter from './query.route'
-
+import userRouter from './user.route'
 
 const router = express.Router()
 
-router.use(queryRouter)
+router.use(userRouter)
 
 export default router
