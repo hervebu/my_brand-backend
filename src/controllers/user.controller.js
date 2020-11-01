@@ -52,7 +52,8 @@ const loginUser = async (req, res) => {
             const loginToken = jwt.sign({_id: returnValue},process.env.tokenSecret)
             return res.header('auth_token',loginToken).status(303).send({
                 message: 'Successfully logged in',
-                token: loginToken
+                token: loginToken,
+                val: returnValue
             })
         }
     }).catch(err => {
