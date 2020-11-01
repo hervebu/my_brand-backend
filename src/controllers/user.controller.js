@@ -32,7 +32,8 @@ const addUser = async (req, res) => {
         const signupToken = jwt.sign({_id: snap},process.env.tokenSecret)
         return res.header('auth_token',signupToken).status(201).send({
             message: 'You have been successfully signed up',
-            token: signupToken
+            token: signupToken,
+            val: snap
         })
         }
         })
